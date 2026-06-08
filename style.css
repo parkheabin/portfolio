@@ -1,0 +1,464 @@
+/* =========================
+FONT
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Poiret+One&display=swap');
+
+/* =========================
+RESET
+========================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+/* =========================
+ROOT
+========================= */
+:root{
+  --bg:#FFFDF7;
+  --text:#1E3A5F;
+  --soft:#5B6B88;
+
+  --primary:#4FC3F7;
+  --secondary:#FF8A65;
+  --accent:#FFC857;
+
+  --white:#ffffff;
+
+  --radius:18px;
+
+  --font-title:'Poiret One', sans-serif;
+  --font-body:'Gowun Dodum', sans-serif;
+}
+
+/* =========================
+BASE
+========================= */
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  font-family:var(--font-body);
+  color:var(--text);
+  line-height:1.8;
+  font-size:17px;
+}
+
+main{
+  max-width:1100px;
+  margin:0 auto;
+  padding:40px 20px;
+}
+
+/* 핵심: 섹션 절대 겹침 방지 */
+section{
+  display:block;
+  width:100%;
+  position:relative;
+  margin:70px 0;
+  scroll-margin-top:120px;
+  /* ✨ 본문 섹션의 z-index 기본값을 낮춰서 메뉴가 무조건 위로 오게 합니다 */
+  z-index: 1; 
+}
+
+/* =========================
+TEXT
+========================= */
+h1,h2,h3{
+  font-family:var(--font-title);
+}
+
+h2{
+  font-size:36px;
+  margin-bottom:20px;
+}
+
+p{
+  color:var(--soft);
+}
+
+/* =========================
+HEADER
+========================= */
+header{
+  position:sticky;
+  top:0;
+  /* ✨ 헤더를 우주 끝까지 최상단으로 올립니다 */
+  z-index:999999 !important; 
+  background:rgba(255,255,255,0.88);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+
+nav{
+  max-width:1200px;
+  margin:0 auto;
+  padding:1rem 2rem;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  position:relative;
+}
+
+nav h1{
+  font-size:26px;
+}
+
+/* =========================
+MENU
+========================= */
+nav ul{
+  display:flex;
+  gap:1.5rem;
+  list-style:none;
+}
+
+nav a{
+  text-decoration:none;
+  color:var(--text);
+  transition:.3s ease;
+  position:relative;
+}
+
+nav a:hover{
+  color:var(--secondary);
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:2px;
+  background:var(--secondary);
+  transition:.3s;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+.menu-toggle{
+  display:none;
+}
+
+/* =========================
+HERO
+========================= */
+#hero{
+  text-align:center;
+  padding-top:20px;
+}
+
+.hero-content{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.profile-img{
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:30px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* ✨ 추가: '작업 보러가기' 버튼 스타일 */
+.hero-text h2 {
+  font-family: var(--font-body); /* 한글 소개글은 부드러운 본문 폰트로 변경 */
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.hero-btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 35px;
+  background: var(--secondary); /* 지정하신 오렌지색(#FF8A65) 적용 */
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(255,138,101,0.3);
+  transition: .3s ease;
+}
+
+.hero-btn:hover {
+  background: var(--accent); /* 마우스 올리면 노란색(#FFC857)으로 변화 */
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255,200,87,0.4);
+}
+
+/* =========================
+BOX SECTIONS
+========================= */
+#about,
+#education,
+#contact,
+#experience{
+  background:var(--white);
+  padding:40px;
+  border-radius:var(--radius);
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* =========================
+WORKS
+========================= */
+#works{
+  padding-top:20px;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.work-card{
+  display:flex;
+  align-items:center;
+  gap:30px;
+
+  background:var(--white);
+  padding:25px;
+  border-radius:var(--radius);
+  margin-bottom:30px;
+
+  transition:.3s;
+  box-shadow:0 10px 25px rgba(0,0,0,0.05);
+}
+
+.work-card:hover{
+  transform:translateY(-5px);
+}
+
+.work-text{
+  flex:1;
+}
+
+.work-card img{
+  width:320px;
+  border-radius:14px;
+}
+
+/* =========================
+SKILLS
+========================= */
+#skills{
+  text-align:center;
+}
+
+#skills ul{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+
+  list-style:none;
+  max-width:850px;
+  margin:30px auto 0;
+}
+
+#skills li{
+  position:relative;
+  overflow:hidden;
+
+  padding:24px 20px;
+  border-radius:18px;
+  background:white;
+  color: var(--text);
+  font-weight:600;
+
+  transition:.3s ease;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+#skills li:hover{
+  transform:translateY(-6px);
+  color:white;
+}
+
+/* 🌌 1. 영상 기획 -> 저녁 노을이 지고 밤이 찾아오는 순간의 '연한 밀키 블루' */
+#skills li:nth-child(1):hover {
+  background: #80DEEA; 
+  color: var(--text); /* 부드러운 색상에는 기존 네이비 글씨가 더 세련돼 보여요 */
+  box-shadow: 0 8px 20px rgba(128, 222, 234, 0.3);
+}
+
+/* 🎇 2. 영상 편집 -> 밤하늘에 몽환적으로 번지는 '파스텔 라벤더 핑크' */
+#skills li:nth-child(2):hover {
+  background: #F48FB1;
+  box-shadow: 0 8px 20px rgba(244, 143, 177, 0.3);
+}
+
+/* 🏮 3. 촬영 및 연출 -> 은은한 축제 조명 빛을 닮은 '살구빛 소프트 코랄' */
+#skills li:nth-child(3):hover {
+  background: #FFAB91;
+  box-shadow: 0 8px 20px rgba(255, 171, 145, 0.3);
+}
+
+/* 🔮 4. 아이디어 기획 -> 깊은 밤하늘의 감성을 담은 '차분한 더스티 퍼플' */
+#skills li:nth-child(4):hover {
+  background: #B39DDB;
+  box-shadow: 0 8px 20px rgba(179, 157, 219, 0.3);
+}
+
+/* 🍃 5. 콘텐츠 분석 -> 밤바람처럼 시원하고 싱그러운 '소프트 민트 그린' */
+#skills li:nth-child(5):hover {
+  background: #80CBC4;
+  box-shadow: 0 8px 20px rgba(128, 203, 196, 0.3);
+}
+
+/* =========================
+EDUCATION
+========================= */
+#education h3::before{
+  content:"🎓 ";
+}
+
+/* =========================
+CONTACT
+========================= */
+#contact p{
+  margin:14px 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+}
+
+.material-symbols-outlined{
+  color:var(--primary);
+}
+
+/* =========================
+FOOTER
+========================= */
+footer{
+  text-align:center;
+  padding:4rem 2rem;
+  color:white;
+  background:linear-gradient(to right,#FF8A65,#FFC857,#4FC3F7);
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+@media (max-width:768px){
+
+  .menu-toggle{
+    display:block;
+    font-size:34px;
+    cursor:pointer;
+  }
+
+  nav ul{
+    display:none;
+    position:absolute;
+    top:70px;
+    right:20px;
+
+    width:220px;
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+
+    border-radius:20px;
+    padding:25px;
+
+    flex-direction:column;
+    gap:1.2rem;
+    
+    /* ✨ 메뉴 박스 자체도 확실하게 최상단으로 띄웁니다 */
+    z-index: 999999 !important; 
+  }
+
+  nav ul.active{
+    display:flex;
+  }
+
+  .work-card{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .work-card img{
+    width:100%;
+  }
+
+  #skills ul{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  h2{
+    font-size:30px;
+  }
+}
+
+@media (max-width:480px){
+
+  main{
+    padding:30px 15px;
+  }
+
+  .profile-img{
+    width:180px;
+    height:180px;
+  }
+
+  #skills ul{
+    grid-template-columns:1fr;
+  }
+
+  #about,
+  #education,
+  #contact,
+  #experience{
+    padding:30px 20px;
+  }
+}
+
+/* =========================
+HERO FADE-IN ANIMATION
+========================= */
+
+/* ① 애니메이션 기본 틀 정의 (아래에서 위로 투명도 투과) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* 20px 아래에서 시작 */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);    /* 제자리로 이동 */
+  }
+}
+
+/* ② 애니메이션을 적용할 공통 클래스 설정 */
+.fade-in-item {
+  opacity: 0; /* 처음에는 안 보이게 설정 */
+  animation: fadeInUp 0.6s ease forwards; /* 0.8초 동안 부드럽게 재생 */
+}
+
+/* ③ 순차적으로 등장하도록 지연 시간(Delay) 주기 (0.2초 간격) */
+.delay-1 {
+  animation-delay: 0.4s; /* 타이틀 (h2) */
+}
+
+.delay-2 {
+  animation-delay: 0.6s; /* 부제 (p) */
+}
+
+.delay-3 {
+  animation-delay: 0.8s; /* 버튼 (a) */
+}
+
+
