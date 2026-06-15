@@ -289,7 +289,7 @@ SKILLS
 /* 🌌 1. 영상 기획 -> 저녁 노을이 지고 밤이 찾아오는 순간의 '연한 밀키 블루' */
 #skills li:nth-child(1):hover {
   background: #80DEEA; 
-  color: var(--text); /* 부드러운 색상에는 기존 네이비 글씨가 더 세련돼 보여요 */
+  color: #fff; /* 부드러운 색상에는 기존 네이비 글씨가 더 세련돼 보여요 */
   box-shadow: 0 8px 20px rgba(128, 222, 234, 0.3);
 }
 
